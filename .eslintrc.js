@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   env: {
     es2021: true,
@@ -40,15 +41,16 @@ module.exports = {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": ["error", "never"],
-    "react/prop-types": 0,
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "react/require-default-props": 0,
-    "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "react-hooks/exhaustive-deps": 0,
     "import/prefer-default-export": 0,
     "global-require": 0,
     "react/style-prop-object": 0
-}
+},
+"ignorePatterns": [
+  "node_modules/**",
+  "build/**",
+  "dist/**"
+]
 };
