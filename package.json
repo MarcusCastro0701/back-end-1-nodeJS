@@ -1,0 +1,48 @@
+{
+  "name": "desafio-nodejs-backend-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=development && nodemon",
+    "prebuild": "rd /s /q dist",
+    "build": "tsc -p tsconfig.build.json",
+    "prod": "NODE_ENV=production node dist/server.js",
+    "migration:run": "prisma migrate deploy",
+    "migration:generate": "prisma migrate dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.11.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "express": "^4.18.3",
+    "express-async-errors": "^3.1.1",
+    "http-status": "^1.7.4",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/debug": "^4.1.12",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.11.26",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^9.0.0",
+    "nodemon": "^3.1.0",
+    "prettier": "3.2.5",
+    "prisma": "^5.11.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript-eslint": "^7.5.0"
+  }
+}
