@@ -11,7 +11,7 @@ module.exports = {
     "prettier",
     "plugin:prettier/recommended"
 ],
-"plugins": ["@typescript-eslint", "react", "prettier"],
+"plugins": ["@typescript-eslint", "prettier"],
 "parser": "@typescript-eslint/parser",
 "parserOptions": {
     "ecmaFeatures": {
@@ -38,19 +38,10 @@ module.exports = {
             "endOfLine": "auto"
         }
     ],
-    "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": ["error", "never"],
-    "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "import/prefer-default-export": 0,
-    "global-require": 0,
-    "react/style-prop-object": 0
 },
-"ignorePatterns": [
-  "node_modules/**",
-  "build/**",
-  "dist/**"
-]
+
 };
