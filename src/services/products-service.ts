@@ -13,7 +13,7 @@ async function createProduct(nome: string, descricao: string, preco: number, dat
         data: {
             nome,
             descricao,
-            preco,
+            preco: preco.toFixed(2),
             data_atualizado
         }
     });
