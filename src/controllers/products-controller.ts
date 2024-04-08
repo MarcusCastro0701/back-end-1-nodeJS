@@ -1,11 +1,16 @@
-import { AuthenticatedAdminRequest } from "@/middlewares/authenticationAdmin-middlerare";
+import { AuthenticatedAdminRequest } from "@/middlewares/params-middlerare";
 import { productSCHEMA } from "@/schemas/products-schema";
 import productsService from "@/services/products-service";
+import { format } from 'date-fns';
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 
 export async function createProduct(req: Request, res: Response){
     try {    
+
+        const now = new Date();
+
+        const data_atualizado = format(now, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
 
         const isValid = productSCHEMA.validate(req.body, {abortEarly: false})
 
@@ -18,7 +23,7 @@ export async function createProduct(req: Request, res: Response){
             req.body.nome,
             req.body.descricao,
             req.body.preco,
-            req.body.data_atualizado
+            data_atualizado
         )
 
         return res.status(httpStatus.OK).send(posting)
@@ -51,12 +56,23 @@ export async function updateData(req: AuthenticatedAdminRequest, res: Response){
         const body = req.body;
         const id = Number(req.params.productId);
 
+        const isValid = productSCHEMA.validate(req.body, {abortEarly: false})
+
+        if(isValid.error){
+            console.log(isValid.error)
+            return res.sendStatus(httpStatus.BAD_REQUEST)
+        }
+
+        const now = new Date();
+
+        const data_atualizado = format(now, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
+
         const updating = await productsService.upadateProduct(
             Number(id), 
             body.nome,
             body.descricao,
             body.preco,
-            body.data_atualizado
+            data_atualizado
         )
 
         res.status(httpStatus.OK).send(updating)

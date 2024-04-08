@@ -4,8 +4,8 @@ import express from "express";
 
 import "express-async-errors";
 
-import { productsRouter } from "./routers/auth-router";
-import { clientsRouter } from "./routers/enrollment-router";
+import { clientsRouter } from "./routers/clients-router";
+import { productsRouter } from "./routers/products-router";
 
 loadEnv();
 

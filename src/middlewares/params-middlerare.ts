@@ -2,11 +2,17 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 
 
-export async function authenticateAdminToken(req: AuthenticatedAdminRequest, res: Response, next: NextFunction) {
+export async function authenticateParams(req: Request, res: Response, next: NextFunction) {
 
+  const id = req.params;
 
   try {
-    return 'ok'
+    
+    if(!id){
+      res.sendStatus(httpStatus.BAD_REQUEST)
+    }
+
+    next();
 
   } catch (err) {
     return res.sendStatus(httpStatus.UNAUTHORIZED);

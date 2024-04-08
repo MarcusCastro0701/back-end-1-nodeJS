@@ -8,7 +8,7 @@ async function getAllProducts(){
     return result
 }
 
-async function createProduct(nome: string, descricao: string, preco: number, data_atualizado: Date){
+async function createProduct(nome: string, descricao: string, preco: number, data_atualizado: string){
     const result = await prisma.produtos.create({
         data: {
             nome,
@@ -25,7 +25,7 @@ async function createProduct(nome: string, descricao: string, preco: number, dat
     return result
 }
 
-async function upadateProduct(id: number, nome: string, descricao: string, preco: number, data_atualizado: Date){
+async function upadateProduct(id: number, nome: string, descricao: string, preco: number, data_atualizado: string){
 
     const produtoExistente = await prisma.clientes.findUnique({
         where: { id },
