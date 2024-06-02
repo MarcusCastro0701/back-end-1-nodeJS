@@ -55,6 +55,8 @@ export async function getAllClients() {
     };
   
     const dadosMesclados = { ...clienteExistente, ...dadosAtualizados };
+
+    console.log(dadosMesclados, 'dados mesclados aqui')
   
     const updatedClient = await prisma.clientes.update({
       where: { id },

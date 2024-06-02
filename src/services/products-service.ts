@@ -27,7 +27,9 @@ async function createProduct(nome: string, descricao: string, preco: number, dat
 
 async function upadateProduct(id: number, nome: string, descricao: string, preco: number, data_atualizado: string){
 
-    const produtoExistente = await prisma.clientes.findUnique({
+    console.log(id, 'ID AQUI')
+
+    const produtoExistente = await prisma.produtos.findUnique({
         where: { id },
       });
 
@@ -40,6 +42,8 @@ async function upadateProduct(id: number, nome: string, descricao: string, preco
 
       const dadosMesclados = { ...produtoExistente, ...dadosAtualizados };
 
+
+      console.log(dadosMesclados, 'dados mesclados aqui')
       
     return await prisma.produtos.update({
         where: { id },
