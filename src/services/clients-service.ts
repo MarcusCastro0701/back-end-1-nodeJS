@@ -55,14 +55,13 @@ export async function getAllClients() {
     };
   
     const dadosMesclados = { ...clienteExistente, ...dadosAtualizados };
-
-    console.log(dadosMesclados, 'dados mesclados aqui')
   
     const updatedClient = await prisma.clientes.update({
       where: { id },
       data: dadosMesclados,
     });
   
+    console.log('Atualizando dados no caching');
     cache.del('allClients');
     cache.del(`client_${id}`); 
   
